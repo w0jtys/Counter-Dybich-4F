@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Counter.MainPage"
+             Title="Licznik">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="15">
+
+            <Entry x:Name="NameInput"
+                   Placeholder="Nazwa licznika"
+            />
+
+            <Entry x:Name="InitInput"
+                   Placeholder="Wartość początkowa"
+                   Keyboard="Numeric"
+            />
+
+            <Button Text="Dodaj licznik"
+                    Clicked="Add_Clicked"
+            />
+
+            <CollectionView x:Name="ListView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Spacing="10"
+                                               Margin="1">
+
+                            <Label Text="{Binding Name}"
+                                   VerticalOptions="Center"
+                                   WidthRequest="110"
+                            />
+
+                            <Label Text="{Binding Value}"
+                                   VerticalOptions="Center"
+                                   WidthRequest="40"
+                            />
+
+
+                            <Button Text="-"
+                                    Clicked="Minus_Clicked"
+                                    WidthRequest="55"
+                                    CommandParameter="{Binding .}"
+                            />
+
+                            <Button Text="+"
+                                    Clicked="Plus_Clicked"
+                                    WidthRequest="55"
+                                    CommandParameter="{Binding .}"
+                            />
+
+                            <Button Text="DEL"
+                                    Clicked="Delete_Clicked"
+                                    WidthRequest="55"
+                                    CommandParameter="{Binding .}"
+                            />
+
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
